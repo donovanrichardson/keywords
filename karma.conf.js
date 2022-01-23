@@ -3,6 +3,7 @@
 
 module.exports = function (config) {
   config.set({
+    // browsers: ['ChomeHeadless'], //https://braydoncoyer.dev/blog/how-to-unit-test-an-http-service-in-angular
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [

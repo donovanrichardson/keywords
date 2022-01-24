@@ -12,6 +12,6 @@ export class TextFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  model = ""
+  model = "Hello Gurlies"
 
 }

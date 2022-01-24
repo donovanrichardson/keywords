@@ -1,1 +1,9 @@
-<p>text-form works!</p>
+<form #heroForm="ngForm">
+    <!-- The heroForm template variable is now a reference to the NgForm directive instance that governs the form as a whole. -->
+    <div class="form-group">
+        <label for="input">Text Input</label>
+        <textarea class="form-control" id="input" required rows=4 [(ngModel)]="model">{{model}}
+    </textarea>
+    TODO: remove this: {{model}}
+    </div>
+</form>

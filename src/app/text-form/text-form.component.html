@@ -1,9 +1,10 @@
-<form #heroForm="ngForm">
+<form (ngSubmit)="onSubmit()" #textForm="ngForm" >
     <!-- The heroForm template variable is now a reference to the NgForm directive instance that governs the form as a whole. -->
     <div class="form-group">
         <label for="input">Text Input</label>
-        <textarea class="form-control" id="input" required rows=4 [(ngModel)]="model">{{model}}
+        <textarea class="form-control" id="input" required rows=4 [(ngModel)]="model" name="text">
     </textarea>
     TODO: remove this: {{model}}
     </div>
+    <button id="submission" type="submit" class="btn btn-success" [disabled]="!model">Submit</button>
 </form>

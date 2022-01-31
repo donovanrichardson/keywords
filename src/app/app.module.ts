@@ -8,15 +8,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { TextFormComponent } from './text-form/text-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TextFormComponent
-  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientXsrfModule.disable(),
+  ],
+  declarations: [
+    AppComponent,
+    TextFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

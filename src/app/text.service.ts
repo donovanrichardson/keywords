@@ -32,7 +32,7 @@ export class TextService {
   }
 
   addText(composed:Text): Observable<Text>{
-    return this.httpClient.post<Text>("localhost:8080/api/v1/text",composed).pipe(
+    return this.httpClient.post<Text>("http://localhost:8080/api/v1/text",composed).pipe(
       // catchError(this.handleError<Text>('addText'))
       )
     // .pipe()

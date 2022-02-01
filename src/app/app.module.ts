@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { TextFormComponent } from './text-form/text-form.component';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { TextFormComponent } from './text-form/text-form.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientXsrfModule.disable(),
+    HttpClientXsrfModule.disable()//didnt fix the issue
   ],
   declarations: [
     AppComponent,

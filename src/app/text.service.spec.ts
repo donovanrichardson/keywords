@@ -7,7 +7,7 @@ import { TextService } from './text.service';
 describe('TextService', () => {
   let service: TextService;
   let httpController: HttpTestingController;
-  let url = 'localhost:8080/api/v1/text';
+  let url = 'localhost:8080/api/v1/text/';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -49,4 +49,38 @@ describe('TextService', () => {
     req.flush(expected);
 
   })
+
+  it('should call getTexts and return texts', ()=>{
+    let texts: Text[] = [
+      {
+        id:'the_id',
+        content:"expected",
+        timestamp:"2020-02-04T10:23:45Z"
+      },
+      {
+        id:'the_id',
+        content:"expected 2",
+        timestamp:"2020-02-00T20:23:45Z"
+      }
+    ]
+
+    service.getTexts().subscribe(res=>{
+      expect(res).toEqual(texts)
+    })
+
+    const req = httpController.expectOne({
+
+      method: 'GET',
+
+      url: `localhost:8080/api/v1/text/10-recent/`,
+
+    });
+
+    expect(req.request.body).toEqual(texts);
+
+    req.flush(texts);
+
+  })
+  
+
 });

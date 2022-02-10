@@ -24,7 +24,8 @@ export class TextService {
   }
 
   getTexts(): Observable<Text[]>{
-    return [] as any;
+    return this.httpClient.get<Text[]>("http://localhost:8080/api/v1/text/10-recent/").pipe(
+      catchError(this.handleError<Text[]>('getTexts')))
   }
 
   getText(id: string): Observable<Text>{

@@ -8,3 +8,11 @@
     </div>
     <button id="submission" type="submit" class="btn btn-success" [disabled]="!model">Submit</button>
 </form>
+<!-- <div "> -->
+    <div *ngFor="let text of texts; let i = index" class="mx-3">
+        <div class="m-3">
+            <div>{{text.content}}</div>
+            <div>{{text.timestamp}}</div>
+        </div>
+    </div>
+<!-- </div> -->

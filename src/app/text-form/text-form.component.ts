@@ -18,12 +18,19 @@ export class TextFormComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(DateTime)
+
+    this.textService.getTexts().subscribe(res =>{
+      this.texts = res
+    })
+
   }
 
   // @ViewChild('textForm', {static: false}) textForm!: NgForm;
   //https://stackoverflow.com/questions/62989255/uncaught-in-promise-error-export-of-name-ngform-not-found
   //https://stackoverflow.com/a/66179216/9608521
   model : string = "Hello Gurlies"
+
+  texts : Text[] = []
 
   onSubmit() {
     let payload: Text;

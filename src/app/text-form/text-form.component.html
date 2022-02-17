@@ -4,15 +4,21 @@
         <label for="input">Text Input</label>
         <textarea class="form-control" id="input" required rows=4 [(ngModel)]="model" name="text">
     </textarea>
-    TODO: remove this: {{model}}
+    <!-- TODO: remove this: {{model}} -->
     </div>
     <button id="submission" type="submit" class="btn btn-success" [disabled]="!model">Submit</button>
 </form>
-<!-- <div "> -->
-    <div *ngFor="let text of texts; let i = index" class="mx-3">
-        <div class="m-3">
-            <div>{{text.content}}</div>
+<div >
+    <div *ngFor="let text of texts; let i = index" class="mx-3 my-4" >
+        <!-- <div class="m-3"> -->
+            <div>{{text.content.length > 500 ? text.content.substring(0,500) +"...":text.content}}</div>
             <div>{{text.timestamp}}</div>
-        </div>
+            <div class="d-flex flex-row justify-content-center">
+                <div *ngFor="let kwd of text.keywords; let j = index" style="min-width: 5%;" class="mx-2 px-2 border border-info rounded    ">
+                    {{kwd.name}}
+                </div>
+            </div>
+
+        <!-- </div> -->
     </div>
-<!-- </div> -->
+</div>

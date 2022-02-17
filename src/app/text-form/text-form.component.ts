@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {DateTime} from 'luxon'
 import { Text } from '../entity/text';
@@ -16,13 +16,17 @@ export class TextFormComponent implements OnInit {
 
   constructor(private textService:TextService) { }
 
-  ngOnInit(): void {
-    console.log(DateTime)
-
+  refresh(): void{
     this.textService.getTexts().subscribe(res =>{
-      this.texts = res
+      this.texts = res;
+      console.log(this.texts)
+      console.log('refreshing')
     })
+  }
 
+  ngOnInit(): void {
+
+    this.refresh();
   }
 
   // @ViewChild('textForm', {static: false}) textForm!: NgForm;
@@ -39,9 +43,14 @@ export class TextFormComponent implements OnInit {
       timestamp: new Date().toISOString()
     };
     console.log("submitting", payload)
-    let submitted = this.textService.addText(payload).subscribe()
-    console.log(submitted)
-    return;
+    let submitted = this.textService.addText(payload).subscribe(()=>{
+      console.log(submitted, "submitted")
+      this.refresh();
+    }
+
+    )
+    
+
   }
 
 }

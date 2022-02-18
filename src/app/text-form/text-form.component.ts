@@ -32,7 +32,7 @@ export class TextFormComponent implements OnInit {
   // @ViewChild('textForm', {static: false}) textForm!: NgForm;
   //https://stackoverflow.com/questions/62989255/uncaught-in-promise-error-export-of-name-ngform-not-found
   //https://stackoverflow.com/a/66179216/9608521
-  model : string = "Hello Gurlies"
+  model : string = ""
 
   texts : Text[] = []
 

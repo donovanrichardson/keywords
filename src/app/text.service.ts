@@ -24,7 +24,7 @@ export class TextService {
   }
 
   getTexts(): Observable<Text[]>{
-    return this.httpClient.get<Text[]>("http://localhost:8080/api/v1/text/10-recent/").pipe(
+    return this.httpClient.get<Text[]>("http://198.199.91.50:8080/api/v1/text/10-recent/").pipe(
       catchError(this.handleError<Text[]>('getTexts')))
   }
 
@@ -33,7 +33,7 @@ export class TextService {
   }
 
   addText(composed:Text): Observable<Text>{
-    return this.httpClient.post<Text>("http://localhost:8080/api/v1/text/",composed).pipe(
+    return this.httpClient.post<Text>("http://198.199.91.50:8080/api/v1/text/",composed).pipe(
       catchError(this.handleError<Text>('addText'))
       )
     // .pipe()

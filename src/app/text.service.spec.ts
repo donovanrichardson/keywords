@@ -7,7 +7,7 @@ import { TextService } from './text.service';
 describe('TextService', () => {
   let service: TextService;
   let httpController: HttpTestingController;
-  let url = 'localhost:8080/api/v1/text/';
+  let url = '198.199.91.50:8080/api/v1/text/';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -72,7 +72,7 @@ describe('TextService', () => {
 
       method: 'GET',
 
-      url: `localhost:8080/api/v1/text/10-recent/`,
+      url: `198.199.91.50:8080/api/v1/text/10-recent/`,
 
     });
 
